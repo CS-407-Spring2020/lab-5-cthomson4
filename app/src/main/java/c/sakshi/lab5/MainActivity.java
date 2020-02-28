@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         if (!sharedPreferences.getString("username","").equals("")) {
             String username = sharedPreferences.getString("username","");
             // go to notes activity
-            goToNotesActivity(username);
+            goToNotesActivity();
         }
         // else go to main activity
         else {
@@ -49,12 +49,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Store username in sharedPreferences
         sharedPreferences.edit().putString("username", username).apply();
-        goToNotesActivity(username);
+        goToNotesActivity();
     }
 
-    public void goToNotesActivity(String username) {
+    public void goToNotesActivity() {
         Intent intent = new Intent(this, NotesActivity.class);
-        intent.putExtra("message",username);
         startActivity(intent);
     }
 }
